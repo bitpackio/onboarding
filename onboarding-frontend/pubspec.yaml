@@ -1,0 +1,26 @@
+name: onboarding
+description: >
+  Onboarding Frontend App, https://github.com/bitpackio/onboarding.
+version: 1.0.0
+
+environment:
+  sdk: '>=2.12.0-259.8.beta <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  http: any
+  window_size:
+    git:
+      url: https://github.com/google/flutter-desktop-embedding
+      path: plugins/window_size
+      //ref: 927f8cbc09b35d85245c095f2db8df9b186f6618
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
