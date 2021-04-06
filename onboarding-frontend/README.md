@@ -86,6 +86,9 @@ $ ./build/linux/x64/release/bundle/onboarding-frontend
 # Build and execute the web app.
 $ flutter build web
 $ CHROME_EXECUTABLE=/snap/bin/chromium flutter run -d chrome
+# Build and execute the android app.
+$ flutter build apk
+$ flutter build appbundle
 # Clean up the builds.
 $ flutter clean
 ```
