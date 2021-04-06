@@ -1,4 +1,4 @@
-package com.example.step6
+package io.bitpack.onboarding
 
 import io.flutter.embedding.android.FlutterActivity
 
