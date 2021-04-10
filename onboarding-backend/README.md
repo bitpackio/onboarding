@@ -3,29 +3,19 @@ Onboarding Backend is the REST API with Go for the Onboarding Flutter Frontend u
 1. **Gin Framework**
 2. **Gorm** 
 
-## Installation
+## Docker Environment
 ```bash
-# Install Go
-$ sudo apt install golang postgresql
-# Download this project
-$ go get github.com/bitpackio/onboarding
+# Setup environment files
+$ vi etc/app.env
+$ vi src/config/database.go
 
-# Download Gin Framework
-$ go get github.com/gin-gonic/gin
-# Download GORM 
-$ go get -u gorm.io/gorm
-# Download GORM PostgreSQL Driver
-$ go get -u gorm.io/driver/postgres
-```
+# Build the container
+$ sudo docker-compose build
+# Run the container
+$ sudo docker-compose up 
 
-## DB Setup
-1. Edit Config/Database.go
-2. Update DBName, User, Password, Host and Port
-
-## Run the server
-```bash
-# Compile and run
-$ go run main.go
+Starting onboarding-backend_database_1 ... done
+Starting onboarding-backend_server_1   ... done
 ```
 
 ## Run the client
@@ -34,7 +24,7 @@ $ go run main.go
 $ curl -d '{"boatid":sw1,"gender":"f","scabies":0,"needs_protection":0,"medical_case":0,"nationality":"ly","age":26,"alone_traveling_woman":1,"unaccompanied_minor":0,"pregnant_woman":0,"temperature":37}' -X POST 127.0.0.1:8080/v1/people
 $ curl -X GET 127.0.0.1:8080/v1/people
 $ curl -X GET 127.0.0.1:8080/v1/people/1
-$ curl -d '{"boatid":sw2,"gender":"m","scabies":0,"needs_protection":0,"medical_case":0,"nationality":"ly","age":38,"alone_traveling_woman":1,"unaccompanied_minor":0,"pregnant_woman":0,"temperature":33}' -X PUT 127.0.0.1:8080/v1/people/1
+$ curl -d '{"boatid":sw2,"gender":"m","scabies":0,"needs_protection":0,"medical_case":0,"nationality":"ly","age":38,"alone_traveling_woman":0,"unaccompanied_minor":0,"pregnant_woman":0,"temperature":33}' -X PUT 127.0.0.1:8080/v1/people/1
 $ curl -X DELETE 127.0.0.1:8080/v1/people/1
 ```
 
@@ -61,4 +51,45 @@ $ curl -X DELETE 127.0.0.1:8080/v1/people/1
 	"pregnant_woman": "pregnant_woman",
 	"temparature": "temperature",
 }
+```
+
+## Local Go Installation
+```bash
+# Install Go
+$ sudo apt install golang postgresql
+# Download Project
+$ go get github.com/bitpackio/onboarding/onboarding-backend
+
+# Setup Project
+$ cd onboarding/onboarding-backend/src
+# Download Gin Framework
+$ go get github.com/gin-gonic/gin
+# Download GORM 
+$ go get -u gorm.io/gorm
+# Download GORM PostgreSQL Driver
+$ go get -u gorm.io/driver/postgres
+```
+
+## Local Database Setup
+```bash
+# Setup PostgreSQL Database
+psql --host=127.0.0.1 --username=postgres --dbname=postgres
+create database "onboarding-db-1";
+create user onboarding with encrypted password 'changeme';
+grant all privileges on database onboarding-db-1 to onboarding;
+
+# Edit Database Configuration
+vi config/database.go
+# Update DBName, User, Password, Host and Port
+Host: 127.0.0.1
+Port: 5432
+User: onboarding
+Password: changeme
+DBName: onboarding-db-1
+```
+
+## Run the server
+```bash
+# Compile and run
+$ go run main.go
 ```

@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+  database:
+    image: postgres
+    restart: always
+    env_file:
+      - etc/app.env
+    networks:
+      - network
+    ports:
+      - "5432:5432"
+    volumes:
+      - data:/var/lib/postgresql/data
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: etc/app.env
+    depends_on:
+      - database
+    networks:
+      - network
+    ports:
+    - "8080:8080"
+volumes:
+  data:
+
+networks:
+  network:
+    driver: bridge
+
