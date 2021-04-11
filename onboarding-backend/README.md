@@ -15,7 +15,7 @@ $ vi src/config/database.go
 # Build the container
 $ sudo docker-compose build
 # Run the container
-$ sudo docker-compose up 
+$ sudo docker-compose up  
 
 Starting onboarding-backend_database_1 ... done
 Starting onboarding-backend_server_1   ... done
@@ -33,10 +33,10 @@ server_1    | [GIN-debug] Listening and serving HTTP on :8080
 ## Run the client
 ```bash
 # Example curl commands to create, read, update and delete elements
-$ curl -d '{"boatid":sw1,"gender":"f","scabies":0,"needs_protection":0,"medical_case":0,"nationality":"ly","age":26,"alone_traveling_woman":1,"unaccompanied_minor":0,"pregnant_woman":0,"temperature":37}' -X POST 127.0.0.1:8080/v1/people
+$ curl -d '{"boatid":1,"gender":"f","scabies":0,"needs_protection":0,"medical_case":0,"nationality":"ly","age":26,"alone_traveling_woman":1,"unaccompanied_minor":0,"pregnant_woman":0,"temperature":37}' -X POST 127.0.0.1:8080/v1/people
 $ curl -X GET 127.0.0.1:8080/v1/people
 $ curl -X GET 127.0.0.1:8080/v1/people/1
-$ curl -d '{"boatid":sw2,"gender":"m","scabies":0,"needs_protection":0,"medical_case":0,"nationality":"ly","age":38,"alone_traveling_woman":0,"unaccompanied_minor":0,"pregnant_woman":0,"temperature":33}' -X PUT 127.0.0.1:8080/v1/people/1
+$ curl -d '{"boatid":2,"gender":"m","scabies":0,"needs_protection":0,"medical_case":0,"nationality":"ly","age":38,"alone_traveling_woman":0,"unaccompanied_minor":0,"pregnant_woman":0,"temperature":33}' -X PUT 127.0.0.1:8080/v1/people/1
 $ curl -X DELETE 127.0.0.1:8080/v1/people/1
 ```
 
