@@ -21,7 +21,15 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func SetupRouter() *gin.Engine {
+func SetupRouter(mode string) *gin.Engine {
+
+        if mode == "release" {
+            gin.SetMode(gin.ReleaseMode)
+        }
+        if mode == "debug" {
+            gin.SetMode(gin.DebugMode)
+        }
+
 	r := gin.Default()
 
 	v1 := r.Group("/v1")

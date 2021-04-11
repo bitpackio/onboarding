@@ -10,7 +10,6 @@ $ sudo apt install docker docker-compose
 
 # Setup environment files
 $ vi etc/app.env
-$ vi src/config/database.go
 
 # Build the container
 $ sudo docker-compose build
@@ -28,6 +27,11 @@ server_1    | [GIN-debug] GET    /v1/people/:id            --> bitpack.io/onboar
 server_1    | [GIN-debug] PUT    /v1/people/:id            --> bitpack.io/onboarding/controller.Update (3 handlers)
 server_1    | [GIN-debug] DELETE /v1/people/:id            --> bitpack.io/onboarding/controller.Delete (3 handlers)
 server_1    | [GIN-debug] Listening and serving HTTP on :8080
+
+# Run the container in daemon mode
+$ sudo docker-compose up -d
+# Stop the container
+$ sudo docker-compose down
 ```
 
 ## Run the client
@@ -63,6 +67,13 @@ $ curl -X DELETE 127.0.0.1:8080/v1/people/1
 	"pregnant_woman": "pregnant_woman",
 	"temparature": "temperature",
 }
+```
+
+## Database Maintenance
+```bash
+# Drop into the database container shell
+$ docker-compose run database bash
+$ psql --host=database --username=onboarding --dbname=onboarding-db-1
 ```
 
 ## Local Go Installation

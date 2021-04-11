@@ -31,16 +31,30 @@ type DBConfig struct {
     Password string
 }
 
+type AppConfig struct {
+    Address     string
+    Port     string
+    Mode     string
+}
+
 func GetDBConfig() *DBConfig {
     db := DBConfig{
-    //Host:     "127.0.0.1",    // connect to local database
-    Host:     "database",       // connect to docker database
+    Host:     "database",
     Port:     5432,
     User:     "onboarding",
     Password: "changeme",
     DBName:   "onboarding-db-1",
     }
     return &db
+}
+
+func GetAppConfig() *AppConfig {
+    app := AppConfig{
+    Address:     "127.0.0.1",
+    Port:     "8080",
+    Mode:     "debug",
+    }
+    return &app
 }
 
 func GetDBURL(db *DBConfig) string {
