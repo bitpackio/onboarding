@@ -19,8 +19,7 @@ package controller
 import (
 	"fmt"
 	"net/http"
-	//"model"
-        "github.com/bitpackio/onboarding/model"
+        "bitpack.io/onboarding/model"
 	"github.com/gin-gonic/gin"
 )
 

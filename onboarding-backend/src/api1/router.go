@@ -17,8 +17,7 @@
 package api1
 
 import (
-	//"controller"
-        "github.com/bitpackio/onboarding/controller"
+        "bitpack.io/onboarding/controller"
 	"github.com/gin-gonic/gin"
 )
 

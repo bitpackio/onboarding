@@ -18,8 +18,7 @@ package model
 
 import (
 	"fmt"
-	//"../config"
-        "github.com/bitpackio/onboarding/config"
+        "bitpack.io/onboarding/config"
 )
 
 func Get(people *[]People) (err error) {

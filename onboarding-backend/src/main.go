@@ -18,9 +18,9 @@ package main
 
 import (
     "fmt"
-    "github.com/bitpackio/onboarding/api1"
-    "github.com/bitpackio/onboarding/config"
-    "github.com/bitpackio/onboarding/model"
+    "bitpack.io/onboarding/api1"
+    "bitpack.io/onboarding/config"
+    "bitpack.io/onboarding/model"
     "gorm.io/driver/postgres"
     "gorm.io/gorm"
 )

@@ -1,4 +1,4 @@
-module github.com/bitpackio/onboarding
+module bitpack.io/onboarding
 
 go 1.13
 

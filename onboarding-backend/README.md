@@ -5,6 +5,9 @@ Onboarding Backend is the REST API with Go for the Onboarding Flutter Frontend u
 
 ## Docker Environment
 ```bash
+# Install docker packages
+$ sudo apt install docker docker-compose
+
 # Setup environment files
 $ vi etc/app.env
 $ vi src/config/database.go
@@ -16,6 +19,15 @@ $ sudo docker-compose up
 
 Starting onboarding-backend_database_1 ... done
 Starting onboarding-backend_server_1   ... done
+
+database_1  | 2021-04-11 00:09:52.408 UTC [1] LOG:  database system is ready to accept connections
+server_1    | 
+server_1    | [GIN-debug] GET    /v1/people                --> bitpack.io/onboarding/controller.Get (3 handlers)
+server_1    | [GIN-debug] POST   /v1/people                --> bitpack.io/onboarding/controller.Create (3 handlers)
+server_1    | [GIN-debug] GET    /v1/people/:id            --> bitpack.io/onboarding/controller.Read (3 handlers)
+server_1    | [GIN-debug] PUT    /v1/people/:id            --> bitpack.io/onboarding/controller.Update (3 handlers)
+server_1    | [GIN-debug] DELETE /v1/people/:id            --> bitpack.io/onboarding/controller.Delete (3 handlers)
+server_1    | [GIN-debug] Listening and serving HTTP on :8080
 ```
 
 ## Run the client
